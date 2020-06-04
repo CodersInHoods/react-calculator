@@ -1,8 +1,25 @@
-import React from "react";
-import "./App.css";
+import React, { useState } from "react";
+import "./App.scss";
+import Calculator from "./components/Calculator";
 
-function App() {
-	return <div className="App"></div>;
-}
+const App = () => {
+	const [isVisible, setIsVisible] = useState(false);
+
+	const clickHandler = () => setIsVisible(true);
+
+	return (
+		<div className="app">
+			<div className="calculator_wrapper">
+				{true ? (
+					<Calculator />
+				) : (
+					<button className={"app_icon"} onClick={clickHandler}>
+						<img src={require("./images/calc-icon.png")} alt="" />
+					</button>
+				)}
+			</div>
+		</div>
+	);
+};
 
 export default App;
